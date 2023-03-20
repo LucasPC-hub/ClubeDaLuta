@@ -82,7 +82,9 @@ export default {
       }
       console.log(payload)
       this.$emit('UserCreate',payload)
-      UserCreate(payload);
+      UserCreate(payload).then(()=>{
+        alert("Usuario Criado")
+      })
       }
     }
   }
