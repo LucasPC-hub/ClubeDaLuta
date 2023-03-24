@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import NavBar from "@/components/navBar.vue";
 import FooterV from "@/components/footerV.vue";
 
@@ -7,9 +7,9 @@ import FooterV from "@/components/footerV.vue";
 
 <template>
 <nav-bar></nav-bar>
-  <body>
-  <RouterView class="bode"/>
-  </body>
+
+  <RouterView/>
+
 <footerV></footerV>
 </template>
 
@@ -19,5 +19,6 @@ body{
   min-height: 100%;
   background-image: url("assets/background.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>

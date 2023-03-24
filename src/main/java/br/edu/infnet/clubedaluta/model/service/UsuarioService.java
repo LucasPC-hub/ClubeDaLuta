@@ -13,10 +13,6 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	
-	public Usuario autenticar(Usuario usuario) {
-		return usuarioRepository.autenticacao(usuario.getEmail(), usuario.getPassword());
-	}
 
 	public Usuario incluir(Usuario usuario) {
 		return usuarioRepository.save(usuario);

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="text-white bg-opacity-75 bg-dark  p-5 m-5">
+  <div class="text-white corpo">
     <p class="fs-1 text-center">Clube da Luta</p>
     <p class="font-bold p-32 text-center text-4xl"></p>
     <p class="p-10 font-bold text-center text-2xl">O Clube da Luta é um torneio organizado especificamente para atender as necessidades da comunidade do jogo Black Desert Online.

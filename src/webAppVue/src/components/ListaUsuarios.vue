@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white bg-opacity-75 bg-dark  p-5 m-5">
+  <div class="corpo">
     <div class="row mrgnbtm">
       <Users v-if="users.length > 0" :users="users" />
     </div>

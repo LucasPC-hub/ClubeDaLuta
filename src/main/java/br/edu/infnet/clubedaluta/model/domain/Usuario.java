@@ -87,7 +87,6 @@ public class Usuario {
 		return new StringJoiner(", ", Usuario.class.getSimpleName() + "[", "]")
 				.add("id=" + id)
 				.add("email='" + email + "'")
-				.add("password='" + password + "'")
 				.add("familia='" + familia + "'")
 				.add("discord='" + discord + "'")
 				.add("classe='" + classe + "'")

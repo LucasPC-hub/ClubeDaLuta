@@ -1,0 +1,90 @@
+$black: rgba(0, 0, 0, 0.4);
+
+
+.corpo{
+  background: $black;  border-radius: 20px;
+  border-left: $black;
+  border-top: $black;
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 30%;
+  left: 50%;
+  padding: 5rem;
+}
+form {
+
+  p {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+
+  input {
+    background: transparent;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
+    border-left: 1px solid $black;
+    border-top: 1px solid $black;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+    }
+
+    &[type="email"],
+    &[type="password"] {
+
+      &:focus {
+        background: rgba(255,255,255,0.1);
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      }
+    }
+
+    &[type="submit"] {
+      margin-top: 10px;
+      width: 150px;
+      font-size: 1rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        background: rgba(255,255,255,0.2);
+      }
+    }
+  }
+
+}
+button{
+  background: black;
+  padding: 1rem;
+  border: none;
+  border-left: 1px solid $black;
+  border-top: 1px solid $black;
+  border-radius: 5000px;
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+::placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}

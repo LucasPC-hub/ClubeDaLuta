@@ -27,7 +27,14 @@
 <!--            </ul>-->
 <!--          </li>-->
         </ul>
+
       </div>
+      <a v-if="estaLogado" class="navbar-brand" href="#">Olá, {{ usuario.familia }}!</a>
+      <button>
+      <router-link v-if="!estaLogado" class="nav-link" to="login" href="#">Login</router-link>
+        <a v-else @click="logout">Logout</a>
+    </button>
+
     </div>
   </nav>
 </template>
