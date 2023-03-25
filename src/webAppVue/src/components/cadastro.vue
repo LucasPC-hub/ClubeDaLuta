@@ -60,6 +60,7 @@
 
 <script>
 import {UserCreate} from "@/services/Services";
+import router from "@/router";
 export default {
   name: "cadastro",
   data() {
@@ -78,12 +79,14 @@ export default {
         familia: this.familia,
         password: this.password,
         discord: this.discord,
-        classe: this.classe
+        classe: this.classe,
+        isAdm:0
       }
       console.log(payload)
       this.$emit('UserCreate',payload)
       UserCreate(payload).then(()=>{
         alert("Usuario Criado")
+        router.push("/")
       })
       }
     }

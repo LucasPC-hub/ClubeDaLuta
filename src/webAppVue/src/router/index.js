@@ -4,7 +4,19 @@ import CadastroView from "@/views/CadastroView.vue";
 import listaView from "@/views/listaView.vue";
 import login from "@/components/login.vue";
 import loginView from "@/views/loginView.vue";
+import {auth} from "@/store/auth";
 
+const requiresLogin = (to, from, next) => {
+  const isLoggedIn = auth.getters.estaLogado
+
+  if (isLoggedIn) {
+    console.log(auth.getters.estaLogado)
+    next()
+  } else {
+    // bloqueia a entrada e redireciona para a página de login
+    next('/login')
+  }
+}
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,7 +33,8 @@ const router = createRouter({
     {
       path:'/listaUsuarios',
       name:'listaUsuarios',
-      component: listaView
+      component: listaView,
+      meta:{requiresLogin}
     },
     {
       path:'/login',

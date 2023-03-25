@@ -20,6 +20,16 @@ public class Usuario {
 	private String discord;
 	private String classe;
 
+	public int getIsAdm() {
+		return isAdm;
+	}
+
+	public void setIsAdm(int isAdm) {
+		this.isAdm = isAdm;
+	}
+
+	private int isAdm;
+
 	public Usuario() {
 	}
 
@@ -90,15 +100,17 @@ public class Usuario {
 				.add("familia='" + familia + "'")
 				.add("discord='" + discord + "'")
 				.add("classe='" + classe + "'")
+				.add("isAdm='" + isAdm + "'")
 				.toString();
 	}
 
-	public Usuario(Integer id, String email, String password, String familia, String discord, String classe) {
+	public Usuario(Integer id, String email, String password, String familia, String discord, String classe, int isAdm) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.familia = familia;
 		this.discord = discord;
 		this.classe = classe;
+		this.isAdm = isAdm;
 	}
 }
