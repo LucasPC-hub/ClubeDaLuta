@@ -79,8 +79,7 @@ export default {
         familia: this.familia,
         password: this.password,
         discord: this.discord,
-        classe: this.classe,
-        isAdm:0
+        classe: this.classe
       }
       console.log(payload)
       this.$emit('UserCreate',payload)

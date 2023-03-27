@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="estaLogado">
+    <div v-if="isAdm">
       <lista-usuarios></lista-usuarios>
     </div>
-    <h1 v-else>Voce Precisa Estar Logado</h1>
+    <h1 class="text-light align-content-center" v-else>Acesso Restrito</h1>
   </div>
 
 </template>

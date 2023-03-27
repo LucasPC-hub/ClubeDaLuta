@@ -1,4 +1,4 @@
-package br.edu.infnet.clubedaluta.controller;
+package br.edu.infnet.clubedaluta.model.domain;
 
 import br.edu.infnet.clubedaluta.model.domain.Usuario;
 

@@ -17,13 +17,13 @@ public class UsuarioLoader implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
+
 		Usuario userAdmin = new Usuario("Administrador ", "admin@admin.com", "123");
 		userAdmin.setClasse("adm");
 		userAdmin.setDiscord("adm");
-		userAdmin.setIsAdm(1);
+		userAdmin.setIsAdm(true);
 		usuarioService.incluir(userAdmin);
-		
+
 		System.out.println("Inclusão do administrador "+userAdmin.getFamilia()+" realizada com sucesso!!!");
 
 	}

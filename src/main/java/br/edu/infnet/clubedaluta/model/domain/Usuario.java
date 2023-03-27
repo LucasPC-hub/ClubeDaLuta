@@ -1,12 +1,12 @@
 package br.edu.infnet.clubedaluta.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "TUsuario")
@@ -20,15 +20,26 @@ public class Usuario {
 	private String discord;
 	private String classe;
 
-	public int getIsAdm() {
+	public boolean isAdm() {
 		return isAdm;
 	}
+	@JsonIgnoreProperties("participantes")
+	@ManyToMany(mappedBy = "participantes")
+	private List<Partidas> partidas = new ArrayList<>();
 
-	public void setIsAdm(int isAdm) {
+	public List<Partidas> getPartidas() {
+		return partidas;
+	}
+
+	public void setPartidas(List<Partidas> partidas) {
+		this.partidas = partidas;
+	}
+
+	public void setIsAdm(boolean isAdm) {
 		this.isAdm = isAdm;
 	}
 
-	private int isAdm;
+	private boolean isAdm;
 
 	public Usuario() {
 	}
@@ -97,14 +108,14 @@ public class Usuario {
 		return new StringJoiner(", ", Usuario.class.getSimpleName() + "[", "]")
 				.add("id=" + id)
 				.add("email='" + email + "'")
-				.add("familia='" + familia + "'")
+				.add("familiia='" + familia + "'")
 				.add("discord='" + discord + "'")
 				.add("classe='" + classe + "'")
 				.add("isAdm='" + isAdm + "'")
 				.toString();
 	}
 
-	public Usuario(Integer id, String email, String password, String familia, String discord, String classe, int isAdm) {
+	public Usuario(Integer id, String email, String password, String familia, String discord, String classe, boolean isAdm) {
 		this.id = id;
 		this.email = email;
 		this.password = password;

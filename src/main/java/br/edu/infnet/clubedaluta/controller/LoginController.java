@@ -1,5 +1,7 @@
 package br.edu.infnet.clubedaluta.controller;
 
+import br.edu.infnet.clubedaluta.model.domain.LoginRequest;
+import br.edu.infnet.clubedaluta.model.domain.LoginResponse;
 import br.edu.infnet.clubedaluta.model.domain.Usuario;
 import br.edu.infnet.clubedaluta.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

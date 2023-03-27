@@ -34,8 +34,13 @@ export default {
         if (response.data.sucesso) {
           // A autenticação foi bem sucedida, faça algo com o usuário retornado
           const usuario = response.data.usuario;
-          this.setUsuarioLogado(usuario)
           console.log(usuario)
+          this.setUsuarioLogado(usuario)
+          if (usuario.adm){
+            this.setAdmin(true)
+          }else {
+            this.setAdmin(false)
+          }
           await router.push("/")
         } else {
           // A autenticação falhou, mostre uma mensagem de erro ao usuário

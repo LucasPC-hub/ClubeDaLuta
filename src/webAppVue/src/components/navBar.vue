@@ -10,8 +10,8 @@
           <li class="nav-item">
             <router-link to="/" class="nav-link active" aria-current="page">Home</router-link>
           </li>
-          <li v-if="estaLogado" class=" nav-item">
-            <router-link v-if="usuario.isAdm=1" class="nav-link" to="listaUsuarios" href="#">Lista de Usuarios</router-link>
+          <li v-if="isAdm" class=" nav-item">
+            <router-link v-if="isAdm" class="nav-link" to="listaUsuarios" href="#">Lista de Usuarios</router-link>
           </li>
 <!--          <li class="nav-item">-->
 <!--            <a class="nav-link" href="#">Pricing</a>-->

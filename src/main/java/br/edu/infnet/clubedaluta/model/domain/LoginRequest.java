@@ -1,4 +1,4 @@
-package br.edu.infnet.clubedaluta.controller;
+package br.edu.infnet.clubedaluta.model.domain;
 
 public class LoginRequest {
     public String email;

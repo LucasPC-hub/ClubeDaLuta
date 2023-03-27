@@ -1,6 +1,6 @@
 const usuario = JSON.parse(localStorage.getItem('user'));
 
-const state = usuario ? { estaLogado: true, usuario } : { estaLogado: false, usuario: null };
+const state = usuario ? { estaLogado: true, usuario, isAdm: usuario.adm } : { estaLogado: false, usuario: null, isAdmin: false };
 
 
 const actions = {
@@ -16,11 +16,10 @@ const mutations = {
     setUsuarioLogado(state, usuario) {
         state.estaLogado = true;
         state.usuario = usuario;
-        if (usuario.isAdm===1){
-            console.log('admistnidores')
-        }
-
         localStorage.setItem('user', JSON.stringify(usuario));
+    },
+    setAdmin(state, isAdmin) {
+        state.isAdm = isAdmin;
     },
     logout(state) {
         state.estaLogado = false;
@@ -31,7 +30,8 @@ const mutations = {
 
 const getters = {
     estaLogado: state => state.estaLogado,
-    usuario: state => state.usuario
+    usuario: state => state.usuario,
+    isAdm: state => state.isAdm
 };
 
 export const auth = {

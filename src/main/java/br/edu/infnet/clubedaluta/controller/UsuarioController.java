@@ -18,11 +18,6 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 
-	@GetMapping(path = "/usuario")
-	public String telaCadastro() {
-		return "usuario/cadastro";
-	}
-
 	@GetMapping(value = "/usuario/lista")
 	public ResponseEntity<?> telaLista() {
 		List<Usuario> resource = usuarioService.obterLista();
