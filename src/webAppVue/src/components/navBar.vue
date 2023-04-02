@@ -10,22 +10,21 @@
           <li class="nav-item">
             <router-link to="/" class="nav-link active" aria-current="page">Home</router-link>
           </li>
-          <li v-if="isAdm" class=" nav-item">
-            <router-link v-if="isAdm" class="nav-link" to="listaUsuarios" href="#">Lista de Usuarios</router-link>
+          <li  class=" nav-item">
+            <router-link class="nav-link" to="listaPartidas" href="#">Lista de Partidas</router-link>
           </li>
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Pricing</a>-->
-<!--          </li>-->
-<!--          <li class="nav-item dropdown">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--              Dropdown link-->
-<!--            </a>-->
-<!--            <ul class="dropdown-menu">-->
-<!--              <li><a class="dropdown-item" href="#">Action</a></li>-->
-<!--              <li><a class="dropdown-item" href="#">Another action</a></li>-->
-<!--              <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-<!--            </ul>-->
-<!--          </li>-->
+          <li v-if="estaLogado" class=" nav-item">
+            <router-link class="nav-link" to="minhasPartidas" href="#">Minhas Partidas</router-link>
+          </li>
+          <li v-if="isAdm" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Opcões Adm
+            </a>
+            <ul class="dropdown-menu">
+              <li><router-link v-if="isAdm" class="dropdown-item" to="listaUsuarios" href="#">Lista de Usuarios</router-link></li>
+              <li><router-link v-if="isAdm" to="criarPartidas" class="dropdown-item" href="#">Criar Partidas</router-link></li>
+            </ul>
+          </li>
         </ul>
 
       </div>

@@ -18,10 +18,13 @@ public class UsuarioService {
 		return usuarioRepository.save(usuario);
 	}
 	
-	public void excluir(Integer key) {
+	public void excluir(Integer key) throws Exception {
+		Usuario usuario = usuarioRepository.findById(key).orElseThrow(() -> new Exception("Usuário não encontrado."));
 		usuarioRepository.deleteById(key);
 	}
-	
+	public Usuario retornarUsuario(int id) throws Exception {
+		return usuarioRepository.findById(id).orElseThrow(() -> new Exception("Usuário não encontrado."));
+	}
 	public List<Usuario> obterLista(){
 		return (List<Usuario>) usuarioRepository.findAll();
 	}

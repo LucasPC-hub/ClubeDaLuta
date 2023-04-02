@@ -1,27 +1,23 @@
 <template>
 
-  <div class="text-white bg-opacity-75 bg-dark  p-5 m-5">
-    <div class="container mt-3">
+  <div class="text-white mt-3 mask-custom corpo">
+    <div class="container">
       <h2 class="text-center">Cadastrar</h2>
       <form>
-        <div class="mb-3 mt-3">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" v-model="email" id="email" placeholder="Email" name="email">
+        <div class="mb-3 mt-5">
+          <input type="email" v-model="email" id="email" placeholder="Email" name="email">
         </div>
         <div class="mb-3">
-          <label for="pwd">Senha:</label>
-          <input type="password" class="form-control" v-model="password" id="password" placeholder="Senha" name="password">
+          <input type="password" v-model="password" id="password" placeholder="Senha" name="password">
         </div>
         <div class="mb-3 mt-3">
-          <label for="familia">Nome de Familia:</label>
-          <input type="text" class="form-control" v-model="familia" id="familia" placeholder="Nome no Jogo" name="familia">
+          <input type="text"  v-model="familia" id="familia" placeholder="Nome no Jogo" name="familia">
         </div>
         <div class="mb-3 mt-3">
-          <label for="discord">Discord:</label>
-          <input type="text" class="form-control" v-model="discord" id="discord" placeholder="Discord" name="discord">
+          <input type="text" v-model="discord" id="discord" placeholder="Discord" name="discord">
         </div>
-        <label for="classe" class="form-label">Selecione a classe: </label>
-        <select class="form-select" v-model="classe" id="classe" name="classe">
+        <select class="form-select rounded-pill text-white" v-model="classe" id="classe" name="classe">
+          <option value="" disabled selected hidden>Selecione sua classe</option>
           <option value="Guerreiro">Guerreiro</option>
           <option value="Valquiria">Valquiria</option>
           <option value="Cacadora">Caçadora</option>
@@ -48,7 +44,7 @@
         </select>
         <br>
 
-        <div class="text-center">    <button type="button" @click="createUser()" class="px-4 py-2">
+        <div class="mt-3 text-center">    <button type="button" @click="createUser()" class="px-4 py-2">
           Finalizar Cadastro
         </button></div>
 
@@ -93,5 +89,30 @@ export default {
 </script>
 
 <style scoped>
+button{
+  height: 5em;
+}
+select {
+  -webkit-appearance: none; /* remove o estilo padrão do select em navegadores WebKit */
+  -moz-appearance: none; /* remove o estilo padrão do select em navegadores Mozilla */
+  appearance: none; /* remove o estilo padrão do select */
+  background-image: url('../assets/seta-para-baixo.png'); /* define a imagem de seta personalizada */
+  background-repeat: no-repeat; /* impede a repetição da imagem */
+  background-position: right center; /* define a posição da imagem */
+  padding-right: 20px; /* adiciona um espaço para a imagem */
+  border: 2px rgba(0, 0, 0, 0.4); /* adiciona uma borda */
+  border-radius: 5px; /* adiciona bordas arredondadas */
 
+}
+
+.form-select{
+  border-left: 1px solid rgba(255, 255, 255, 0.3);;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1em;
+}
+option{
+  background-color:rgba(0, 0, 0, 0.8);
+}
 </style>

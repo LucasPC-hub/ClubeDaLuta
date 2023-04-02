@@ -1,5 +1,6 @@
 package br.edu.infnet.clubedaluta.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
@@ -9,12 +10,14 @@ import java.util.StringJoiner;
 import javax.persistence.*;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "TUsuario")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String email;
+	@JsonIgnore
 	private String password;
 	private String familia;
 	private String discord;
@@ -115,10 +118,9 @@ public class Usuario {
 				.toString();
 	}
 
-	public Usuario(Integer id, String email, String password, String familia, String discord, String classe, boolean isAdm) {
+	public Usuario(Integer id, String email, String familia, String discord, String classe, boolean isAdm) {
 		this.id = id;
 		this.email = email;
-		this.password = password;
 		this.familia = familia;
 		this.discord = discord;
 		this.classe = classe;

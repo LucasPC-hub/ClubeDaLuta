@@ -25,6 +25,7 @@ const mutations = {
         state.estaLogado = false;
         state.usuario = null;
         localStorage.removeItem('user');
+        window.location.reload();
     }
 };
 

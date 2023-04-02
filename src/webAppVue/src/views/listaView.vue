@@ -3,7 +3,7 @@
     <div v-if="isAdm">
       <lista-usuarios></lista-usuarios>
     </div>
-    <h1 class="text-light align-content-center" v-else>Acesso Restrito</h1>
+    <h1 class=" corpo text-light align-content-center" v-else>Acesso Restrito</h1>
   </div>
 
 </template>

@@ -6,6 +6,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
+import javax.persistence.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 
 @Entity
 @Table(name="TPartidas")
@@ -22,6 +27,7 @@ public class Partidas {
             joinColumns = @JoinColumn(name = "partida_id"),
             inverseJoinColumns = @JoinColumn(name = "participante_id"))
     private List<Usuario> participantes = new ArrayList<>();
+    @JsonIgnoreProperties("partidas")
     @OneToOne
     @JoinColumn(name = "idUsuario")
     private Usuario vencedor;

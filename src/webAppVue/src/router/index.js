@@ -5,6 +5,9 @@ import listaView from "@/views/listaView.vue";
 import login from "@/components/login.vue";
 import loginView from "@/views/loginView.vue";
 import {auth} from "@/store/auth";
+import listaPView from "@/views/ListaPView.vue";
+import criarPartidaView from "@/views/criarPartidaView.vue";
+import minhasPartidas from "@/components/minhasPartidas.vue";
 
 
 const router = createRouter({
@@ -31,12 +34,18 @@ const router = createRouter({
       component: loginView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/listaPartidas',
+      name: 'listaPartidas',
+      component: listaPView
+    },
+    {
+      path:'/criarPartidas',
+      name: "criarPartidas",
+      component: criarPartidaView
+    },{
+      path:'/minhasPartidas',
+      name: "minhasPartidas",
+      component: minhasPartidas
     }
   ]
 })

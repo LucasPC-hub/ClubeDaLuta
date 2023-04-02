@@ -21,8 +21,6 @@ public class LoginController {
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         String email = loginRequest.getEmail();
         String senha = loginRequest.getPassword();
-        System.out.println(email);
-        System.out.println(senha);
         // Consulta o banco de dados para verificar se o usuário existe
         Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
 
@@ -33,7 +31,6 @@ public class LoginController {
         }
 
         Usuario usuario = usuarioOptional.get();
-        System.out.println(usuario);
         // Verifica se a senha está correta
         if (!senha.equals(usuario.getPassword())) {
             LoginResponse response = new LoginResponse(false, null);
