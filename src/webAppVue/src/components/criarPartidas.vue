@@ -100,7 +100,6 @@ export default {
             hora: this.hora,
             participantes: this.participantes
           }
-          console.log(payload)
           criarPartida(payload).then(()=>{
             alert("Partida Criada")
             window.location.reload()

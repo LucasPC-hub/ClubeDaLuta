@@ -54,14 +54,11 @@
 </template>
 
 <script>
-import Users from './Users.vue'
+
 import {excludeUser, getAllUsers} from "@/services/Services";
 
 export default {
   name: 'ListaUsuarios',
-  components: {
-    Users
-  },
   data() {
     return {
       users: []
@@ -70,7 +67,6 @@ export default {
   methods: {
     getAllUsers() {
       getAllUsers().then(response => {
-        console.log(response)
         this.users = response
       })
     },

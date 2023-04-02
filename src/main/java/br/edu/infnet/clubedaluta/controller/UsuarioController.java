@@ -1,6 +1,7 @@
 package br.edu.infnet.clubedaluta.controller;
 
 import br.edu.infnet.clubedaluta.model.domain.Partidas;
+import br.edu.infnet.clubedaluta.model.exceptions.EmailJaExisteException;
 import br.edu.infnet.clubedaluta.model.service.PartidasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping(value = "/usuario/incluir")
-	public ResponseEntity<?> incluir(@RequestBody Usuario usuario) {
+	public ResponseEntity<?> incluir(@RequestBody Usuario usuario) throws EmailJaExisteException {
 
 		Usuario resource =usuarioService.incluir(usuario);
 		return ResponseEntity.ok(resource);

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class PartidaLoader implements ApplicationRunner {
     private PartidasService partidasService;
     @Autowired
     private UsuarioService usuarioService;
+
     private List<Usuario> participantesLoader= new ArrayList<>();
 
     @Override
@@ -40,8 +42,8 @@ public class PartidaLoader implements ApplicationRunner {
         System.out.println(participantesLoader);
         Partidas partida = new Partidas();
         partida.setParticipantes(participantesLoader);
-        partida.setData(String.valueOf(LocalDate.now()));
-        partida.setHora(String.valueOf(LocalTime.now()));
+        partida.setData((LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+        partida.setHora(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
 
         System.out.println(partida);
         partidasService.incluir(partida);

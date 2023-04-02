@@ -34,7 +34,6 @@ export default {
         if (response.data.sucesso) {
           // A autenticação foi bem sucedida, faça algo com o usuário retornado
           const usuario = response.data.usuario;
-          console.log(usuario)
           this.setUsuarioLogado(usuario)
           if (usuario.adm){
             this.setAdmin(true)

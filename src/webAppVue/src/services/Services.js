@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export async function getAllUsers() {
 
     const response = await fetch('/api/usuario/lista');
@@ -48,4 +50,20 @@ export async function selecionarVencedor(data) {
         body: JSON.stringify(data)
     })
     return await response.json();
+}
+
+export async function getHora(date,hora){
+    axios.get('https://worldtimeapi.org/api/timezone/America/Sao_Paulo')
+        .then((response) => {
+            const dateObj = new Date(response.data.datetime);
+            const formattedTime = dateObj.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const formattedDate = dateObj.toLocaleDateString();
+            if (date===formattedDate && hora===formattedTime){
+                alert("Partida Iniciando")
+            }
+
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }

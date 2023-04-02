@@ -25,6 +25,15 @@ public class UsuarioLoader implements ApplicationRunner {
 		usuarioService.incluir(userAdmin);
 
 		System.out.println("Inclusão do administrador "+userAdmin.getFamilia()+" realizada com sucesso!!!");
+		for (int i = 0; i < 9; i++) {
+			Usuario userExemplo = new Usuario();
+			userExemplo.setFamilia("Exemplo"+i);
+			userExemplo.setClasse("Maehwa");
+			userExemplo.setPassword("123");
+			userExemplo.setDiscord("Exemplo"+i);
+			userExemplo.setEmail("email"+i+"@email.com");
+			usuarioService.incluir(userExemplo);
+		}
 
 	}
 }

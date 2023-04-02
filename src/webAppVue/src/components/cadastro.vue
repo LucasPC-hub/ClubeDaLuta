@@ -77,7 +77,6 @@ export default {
         discord: this.discord,
         classe: this.classe
       }
-      console.log(payload)
       this.$emit('UserCreate',payload)
       UserCreate(payload).then(()=>{
         alert("Usuario Criado")

@@ -69,7 +69,6 @@ export default {
   methods: {
     getPartidas() {
       getPartidas().then(response => {
-        console.log(response)
         this.partidas = response
       })
     }

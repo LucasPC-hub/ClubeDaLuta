@@ -17,10 +17,12 @@
                 <thead>
                 <tr>
                   <th scope="col">Horario</th>
+                  <th scope="col">Classe</th>
                   <th scope="col"></th>
                   <th scope="col">Participantes</th>
                   <th scope="col"></th>
-                  <th scope="col">Vencedor</th>
+                  <th scope="col">Classe</th>
+                  <th scope="col" class="justify-content-centerz">Vencedor</th>
                   <th v-if="isAdm" scope="col"></th>
                   <th v-if="isAdm" scope="col"></th>
                 </tr>
@@ -28,23 +30,26 @@
                 <tbody>
                 <tr v-for="partida in partidas" :key="partida.id">
                   <td>
-                    <h6 class="ms-2">{{ partida.data }}</h6>
-                    <h6 class="ms-2">{{ partida.hora }}</h6>
+                    <h6 class="ms-2 d-flex justify-content-center align-items-center">{{ partida.data }}</h6>
+                    <h6 class="ms-2 d-flex justify-content-center align-items-center">{{ partida.hora }}</h6>
                   </td>
                   <td class="align-middle">
-
-                    <h6>Classe : {{partida.participantes[0].classe}}</h6>
-                    <h6>Nome: {{partida.participantes[0].familia}}  </h6>
+                      <h6 class="d-flex justify-content-center align-items-center" >{{partida.participantes[0].classe}} </h6>
                   </td>
                   <td class="align-middle">
-                    <h6 class="mb-0">VS</h6>
+                      <h6 class=" d-flex justify-content-center align-items-center" >{{partida.participantes[0].familia}}  </h6>
                   </td>
                   <td class="align-middle">
-                    <h6>Classe : {{partida.participantes[1].classe}}</h6>
-                    <h6>Nome: {{partida.participantes[1].familia}}  </h6>
+                    <h6 class="mb-0 d-flex justify-content-center align-items-center">VS</h6>
                   </td>
                   <td class="align-middle">
-                      <p v-if="partida.vencedor !== null">{{ partida.vencedor.familia }}</p>
+                    <h6 class="d-flex justify-content-center align-items-center">{{partida.participantes[1].familia}}  </h6>
+                  </td>
+                  <td class="align-middle">
+                    <h6 class="d-flex justify-content-center align-items-center" >{{partida.participantes[0].classe}} </h6>
+                  </td>
+                  <td class="align-middle">
+                      <p class=" d-flex justify-content-center align-items-center" v-if="partida.vencedor !== null">{{ partida.vencedor.familia }}</p>
                       <div v-else-if="isAdm">
                         <button class="align-content-center" @click="selecionarPartida(partida)" > Selecionar Vencedor</button>
                         <transition name="fade">
@@ -70,7 +75,7 @@
 </template>
 
 <script>
-import {excludePartida, getPartidas, selecionarVencedor} from "@/services/Services";
+import {excludePartida, getHora, getPartidas, selecionarVencedor} from "@/services/Services";
 
 export default {
   name: "listaPartidas",
@@ -79,14 +84,21 @@ export default {
       partidas: [],
       exibirElemento:false,
       partidaSelecionada: "",
-      vencedor:""
+      vencedor:"",
+      timer:""
     };
   },
   methods: {
+    startInterval() {
+      this.checaHorario()
+      this.timer = setInterval(() => {
+        this.checaHorario();
+      }, 60000);
+    },
     getPartidas() {
       getPartidas().then(response => {
-        console.log(response)
         this.partidas = response
+        this.checaHorario()
       })
     },excludePartida(id){
       excludePartida(id).then(response =>{
@@ -104,10 +116,18 @@ export default {
         alert(response.message);
         window.location.reload();
       })
+    },checaHorario(){
+      let partida;
+      for (partida of this.partidas){
+        if (getHora(partida.data , partida.hora)===true){
+          alert("Partida "+partida.participantes[0].familia+" VS "+partida.participantes[1].familia+" começando")
+        }
+      }
     }
   },
   mounted () {
-    this.getPartidas();
+    this.getPartidas()
+    this.startInterval()
   },
 };
 </script>
